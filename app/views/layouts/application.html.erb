@@ -6,6 +6,10 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Posts: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
+  
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "jwysiwyg/jquery/jquery-1.3.2.js", "jwysiwyg/jwysiwyg/jquery.wysiwyg.js", "jquery.rails" %>
+<%= stylesheet_link_tag 'jquery.wysiwyg' %>
+
 </head>
 <body>
 
@@ -13,5 +17,6 @@
 
 <%= yield %>
 
+<%= yield :javascript%>
 </body>
 </html>

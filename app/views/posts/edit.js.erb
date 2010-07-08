@@ -1,4 +1,2 @@
-<link rel="stylesheet" href="../jwysiwyg/jquery.wysiwyg.css" type="text/css" />
-<link rel="stylesheet" href="examples.css" type="text/css" />
-$("wywy").wysiwyg();
-$("post_body").wysiwyg();
+$("#post_1_body").html("<%= escape_javascript( "<textarea cols=\"40\" rows=\"20\">#{h(@post.body)}</textarea>") %>");
+$("#post_1_body textarea").wysiwyg();

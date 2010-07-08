@@ -1,0 +1,12 @@
+log/*.log
+tmp/**/*
+doc/api
+doc/app
+db/*.sqlite3
+config/database.yml
+config/amazon_s3.yml
+config/panda.yml
+config/cloudfront.yml
+config/mongo_mapper.yml
+log/*
+.bundle

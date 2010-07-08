@@ -1,4 +1,21 @@
 <% div_for post do%>
-	<h2><%= link_to_unless_current h(post.title), post %></h2>
+  <h2><%= link_to_unless_current h(post.title), post%></h2>
+  
+  <div id="<%= "#{dom_id(post)}_body" %>" class="editable">
 	<%= simple_format (post.body) %>
+	</div>
+	
+<% end %>
+
+
+<% content_for :javascript do %>
+
+  <% javascript_tag do %>  
+  $(function()
+  {
+      $('.editable').append('<%= link_to "Edit Inline", edit_post_path(post), "data-remote" => "true" %>');
+      //$('a.inline-edit')
+  });
+  <% end %>
+  
 <% end %>
