@@ -1,7 +1,7 @@
 <% div_for post do%>
   <h2><%= link_to_unless_current h(post.title), post%></h2>
   
-  <div id="<%= "#{dom_id(post)}_body" %>" class="editable">
+  <div id="<%= "#{dom_id(post)}_body" %>" data-edit-path="<%= edit_post_path(post) %>">
 	<%= simple_format (post.body) %>
 	</div>
 	
@@ -13,8 +13,10 @@
   <% javascript_tag do %>  
   $(function()
   {
-      $('.editable').append('<%= link_to "Edit Inline", edit_post_path(post), "data-remote" => "true" %>');
-      //$('a.inline-edit')
+
+    $('[data-edit-path]').each(function() { $(this).append('<%= link_to "Edit Inline", "#", "data-remote" => "true" %>'.replace("#",$(this).attr('data-edit-path'))) });
+
+      
   });
   <% end %>
   
